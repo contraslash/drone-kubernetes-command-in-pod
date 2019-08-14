@@ -59,7 +59,7 @@ env
 echo "=========="
 kubectl get pods
 echo "=========="
-kubectl get pods --field-selector=status.phase==Running --sort-by=.status.startTime | tail -r
+kubectl get pods --field-selector=status.phase==Running --sort-by=.status.startTime | tac
 echo "=========="
 echo kubectl get pods --field-selector=status.phase==Running --sort-by=.status.startTime | tac | grep "${PLUGIN_POD_NAME}" -m 1 |  awk '{print $1}'
 SELECTED_POD=$(kubectl get pods --field-selector=status.phase==Running --sort-by=.status.startTime | tac | grep "${PLUGIN_POD_NAME}" -m 1 | awk '{print $1}')
